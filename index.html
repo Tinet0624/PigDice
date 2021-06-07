@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="/js/main.js"></script>
+    <title>Pig Dice</title>
+</head>
+<body>
+    <div id="container">
+        <!--___________________________________________________________________-->
+        <div id="players">
+            <div id="player-1">
+                <p>click player 1 to change name:</p>
+                <h1 contenteditable="true">Player 1</h1>
+                <h1>Total Points</h1>
+                <h1 id="p1-score">0</h1>
+                <p>Current Points</p>
+                <p id="p1-tempScore">0</p>
+            </div>
+
+            <div id="player-2">
+                <p>click player 2 to change name:</p>
+                <h1 contenteditable="true">Player 2</h1>
+                <h1>Total Points</h1>
+                <h1 id="p2-score">0</h1>
+                <p>Current Points</p>
+                <p id="p2-tempScore">0</p>
+            </div>
+        </div>
+        <!--___________________________________________________________________-->
+        <div id="middle-display"><!-- display random dice num here -->
+            <h1 id="Dice">0</h1>
+        
+        <!--___________________________________________________________________-->
+            <div id="controls">
+                <button type="button" id="roll">ROLL</button>
+                <button type="button" id="pass">PASS</button>
+            </div>
+        </div>
+        <!--___________________________________________________________________-->
+    </div>
+</body>
+</html>
