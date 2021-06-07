@@ -12,7 +12,7 @@ window.onload = function(){
 
 let player1:Player;
 let player2:Player;
-let currentPlayer = player1;
+let currentPlayer;
 
 // rolls the dice.
 function rollDice():number{
@@ -25,12 +25,12 @@ function rollDice():number{
 }
 
 function switchPlayer(){
-    if(currentPlayer === player1){
+    if(currentPlayer == player1 || currentPlayer == null){
         currentPlayer = player2;
         alert("Switch to player 2");
         displayCurrentPlayer();
     }
-    else if(currentPlayer === player2){
+    else if(currentPlayer == player2){
         currentPlayer = player1;
         alert("Switch to player 1");
         displayCurrentPlayer();
@@ -39,10 +39,10 @@ function switchPlayer(){
 
 function score(){
     let value = rollDice();
-    if(currentPlayer = player1){
+    if(currentPlayer == player1 || currentPlayer == null){
         document.getElementById("p1-tempScore").innerHTML = String(value);
     }
-    else if(currentPlayer = player2){
+    else if(currentPlayer == player2){
         document.getElementById("p2-tempScore").innerHTML = String(value);
     }
     // currently only rolls and displays the dice number in current points section.

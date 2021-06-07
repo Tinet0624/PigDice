@@ -20,7 +20,7 @@ window.onload = function () {
 };
 let player1;
 let player2;
-let currentPlayer = player1;
+let currentPlayer;
 function rollDice() {
     let myDie = new Die();
     myDie.roll();
@@ -29,12 +29,12 @@ function rollDice() {
     return value;
 }
 function switchPlayer() {
-    if (currentPlayer === player1) {
+    if (currentPlayer == player1 || currentPlayer == null) {
         currentPlayer = player2;
         alert("Switch to player 2");
         displayCurrentPlayer();
     }
-    else if (currentPlayer === player2) {
+    else if (currentPlayer == player2) {
         currentPlayer = player1;
         alert("Switch to player 1");
         displayCurrentPlayer();
@@ -42,10 +42,10 @@ function switchPlayer() {
 }
 function score() {
     let value = rollDice();
-    if (currentPlayer = player1) {
+    if (currentPlayer == player1 || currentPlayer == null) {
         document.getElementById("p1-tempScore").innerHTML = String(value);
     }
-    else if (currentPlayer = player2) {
+    else if (currentPlayer == player2) {
         document.getElementById("p2-tempScore").innerHTML = String(value);
     }
 }
