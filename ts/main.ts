@@ -77,12 +77,12 @@ function score(){
 
 function winner(){
     if(currentPlayer == player1){
-        if(currentPlayer._scoreThis >= 10){
+        if(currentPlayer._scoreThis >= 100){
             document.getElementById("winner-1").innerHTML = String("Winner!");
         }
     }
     if(currentPlayer == player2){
-        if(currentPlayer._scoreThis >= 10){
+        if(currentPlayer._scoreThis >= 100){
             document.getElementById("winner-2").innerHTML = String("Winner!");
         }
     }
