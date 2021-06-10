@@ -17,10 +17,13 @@ window.onload = function () {
     passBtn.onclick = switchPlayer;
     player1 = new Player();
     player2 = new Player();
+    currentPlayer = player1;
+    tempScore = 0;
 };
 let player1;
 let player2;
 let currentPlayer;
+let tempScore;
 function rollDice() {
     let myDie = new Die();
     myDie.roll();
@@ -29,24 +32,46 @@ function rollDice() {
     return value;
 }
 function switchPlayer() {
-    if (currentPlayer == player1 || currentPlayer == null) {
+    if (currentPlayer == player1) {
+        currentPlayer._scoreThis += tempScore;
+        document.getElementById("p1-score").innerHTML = String(currentPlayer._scoreThis);
+        tempScore = 0;
+        document.getElementById("p1-tempScore").innerHTML = String(tempScore);
         currentPlayer = player2;
-        alert("Switch to player 2");
         displayCurrentPlayer();
     }
     else if (currentPlayer == player2) {
+        currentPlayer._scoreThis += tempScore;
+        document.getElementById("p2-score").innerHTML = String(currentPlayer._scoreThis);
+        tempScore = 0;
+        document.getElementById("p2-tempScore").innerHTML = String(tempScore);
         currentPlayer = player1;
-        alert("Switch to player 1");
         displayCurrentPlayer();
     }
 }
 function score() {
     let value = rollDice();
-    if (currentPlayer == player1 || currentPlayer == null) {
-        document.getElementById("p1-tempScore").innerHTML = String(value);
+    if (currentPlayer == player1) {
+        if (value != 1) {
+            tempScore += value;
+            document.getElementById("p1-tempScore").innerHTML = String(tempScore);
+        }
+        else {
+            tempScore = 0;
+            document.getElementById("p1-tempScore").innerHTML = String(tempScore);
+            switchPlayer();
+        }
     }
     else if (currentPlayer == player2) {
-        document.getElementById("p2-tempScore").innerHTML = String(value);
+        if (value != 1) {
+            tempScore += value;
+            document.getElementById("p2-tempScore").innerHTML = String(tempScore);
+        }
+        else {
+            tempScore = 0;
+            document.getElementById("p2-tempScore").innerHTML = String(tempScore);
+            switchPlayer();
+        }
     }
 }
 function displayCurrentPlayer() {
@@ -61,11 +86,9 @@ function displayCurrentPlayer() {
 }
 class Player {
     constructor() {
+        this._scoreThis = 0;
     }
-    get score() {
-        return this._score;
-    }
-    get tempScore() {
-        return this._tempScore;
+    get scoreThis() {
+        return this._scoreThis;
     }
 }

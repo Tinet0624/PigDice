@@ -1,20 +1,13 @@
 class Player{
-    //what do i need??
     // score
-    private _score: number;
-    //Temp score
-    private _tempScore : number;
-    // active player turn
+    public _scoreThis : number;
 
     constructor(){
+        this._scoreThis = 0;
     }
 
     //getter for score and active
-    get score(){
-        return this._score;
+    get scoreThis(){
+        return this._scoreThis;
     }
-    get tempScore(){
-        return this._tempScore;
-    }
-
 }
