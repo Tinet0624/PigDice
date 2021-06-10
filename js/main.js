@@ -35,6 +35,7 @@ function switchPlayer() {
     if (currentPlayer == player1) {
         currentPlayer._scoreThis += tempScore;
         document.getElementById("p1-score").innerHTML = String(currentPlayer._scoreThis);
+        winner();
         tempScore = 0;
         document.getElementById("p1-tempScore").innerHTML = String(tempScore);
         currentPlayer = player2;
@@ -43,6 +44,7 @@ function switchPlayer() {
     else if (currentPlayer == player2) {
         currentPlayer._scoreThis += tempScore;
         document.getElementById("p2-score").innerHTML = String(currentPlayer._scoreThis);
+        winner();
         tempScore = 0;
         document.getElementById("p2-tempScore").innerHTML = String(tempScore);
         currentPlayer = player1;
@@ -50,6 +52,7 @@ function switchPlayer() {
     }
 }
 function score() {
+    winner();
     let value = rollDice();
     if (currentPlayer == player1) {
         if (value != 1) {
@@ -71,6 +74,18 @@ function score() {
             tempScore = 0;
             document.getElementById("p2-tempScore").innerHTML = String(tempScore);
             switchPlayer();
+        }
+    }
+}
+function winner() {
+    if (currentPlayer == player1) {
+        if (currentPlayer._scoreThis >= 10) {
+            document.getElementById("winner-1").innerHTML = String("Winner!");
+        }
+    }
+    if (currentPlayer == player2) {
+        if (currentPlayer._scoreThis >= 10) {
+            document.getElementById("winner-2").innerHTML = String("Winner!");
         }
     }
 }
